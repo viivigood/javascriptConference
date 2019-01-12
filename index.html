@@ -9,9 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
-  <body>
-    <div class="header">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <body data-spy="scroll" data-target="#menu" data-offset="0" id="home">
+    <div class="header sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="menu">
         <div class="container">
           <!-- Navbar content -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,8 +19,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
@@ -33,9 +33,9 @@
               </li>
             </ul>
           </div>
-          <span style="color: white">
+          <a href="#"><span style="color: white">
             Presented by Company
-          </span>
+          </span></a>
         </div>
       </nav>
     </div><!--header-->
@@ -45,11 +45,11 @@
         <p class="lead text-white">A One-day Conference About All Things Javascript!</p>
         <br><br>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Register Now</a>
-          <a class="btn btn-light btn-lg" href="#" role="button">See Speakears</a>
+          <a class="btn btn-primary btn-lg" href="#" role="button"  data-toggle="modal" data-target="#registerForm">Register Now</a>
+          <a class="btn btn-light btn-lg" href="#speakers" role="button">See Speakears</a>
         </p>
       </div>
-    </div>
+    </div><!--jumbotron-->
     <div class="content">
       <div class="container">
         <div id="about">
@@ -150,7 +150,7 @@
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
                 <p class="h5">Keynote: Internet of Things</p>
-                <span class="badge badge-pill badge-info">9:00am</span>
+                <span class="badge badge-pill badge-info p-2">9:00am</span>
               </div>
               <p class="mb-2">NodeStradamus</p>
             </li>
@@ -159,7 +159,7 @@
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
                 <p class="h5">React Basics</p>
-                <span class="badge badge-pill badge-info">10:00am</span>
+                <span class="badge badge-pill badge-info p-2">10:00am</span>
               </div>
               <p class="mb-2">Vivianne McVue</p>
             </li>
@@ -168,7 +168,7 @@
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
                 <p class="h5">Hey, Mongo!</p>
-                <span class="badge badge-pill badge-info">11:00am</span>
+                <span class="badge badge-pill badge-info p-2">11:00am</span>
               </div>
               <p class="mb-2">Jay Query</p>
             </li>
@@ -177,7 +177,7 @@
             <li class="list-group-item list-group-item-success">
               <div class="d-flex justify-content-between">
                 <p class="h5">Lunch</p>
-                <span class="badge badge-pill badge-info">12:00pm</span>
+                <span class="badge badge-pill badge-info p-2">12:00pm</span>
               </div>
               <p class="mb-2">Free pizza for everyone!</p>
             </li>
@@ -186,7 +186,7 @@
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
                 <p class="h5">Introducing ES2015</p>
-                <span class="badge badge-pill badge-info">1:00pm</span>
+                <span class="badge badge-pill badge-info p-2">1:00pm</span>
               </div>
               <p class="mb-2">Ecma Scriptnstuff</p>
             </li>
@@ -195,7 +195,7 @@
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
                 <p class="h5">Getting Started With Redux</p>
-                <span class="badge badge-pill badge-info">2:00pm</span>
+                <span class="badge badge-pill badge-info p-2">2:00pm</span>
               </div>
               <p class="mb-2">Robbie Redux</p>
             </li>
@@ -204,7 +204,7 @@
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
                 <p class="h5">What's Babel?</p>
-                <span class="badge badge-pill badge-info">3:00pm</span>
+                <span class="badge badge-pill badge-info p-2">3:00pm</span>
               </div>
               <p class="mb-2">Json Babel</p>
             </li>
@@ -251,86 +251,154 @@
                 <hr>
                 <h5>Which Topics Interest You Most?</h5>
                 <div class="form-check">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="topic1">
-                    <label class="custom-control-label" for="topic1">JavaScript Frameworks</label>
-                  </div>
+                  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">JavaScript Frameworks</span>
+                  </label>
                 </div>
                 <div class="form-check">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="topic1">
-                    <label class="custom-control-label" for="topic1">JavaScript Libraries</label>
-                  </div>
+                  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">JavaScript Libraries</span>
+                  </label>
                 </div>
                 <div class="form-check">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="topic1">
-                    <label class="custom-control-label" for="topic1">Node.js</label>
-                  </div>
+                  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Node.js</span>
+                  </label>
                 </div>
                 <div class="form-check">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="topic1">
-                    <label class="custom-control-label" for="topic1">Build Tools</label>
-                  </div>
+                  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Build Tools</span>
+                  </label>
                 </div>
                 <div class="form-check">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="topic1">
-                    <label class="custom-control-label" for="topic1">ES2015</label>
-                  </div>
+                  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">ES2015</span>
+                  </label>
                 </div>
                 <hr>
                 <h5>Payment Info</h5>
-                <div class="form-group">
-                  <label for="card-number" class="col-form-label">Card Number:</label>
-                  <input type="text" class="form-control" id="card-number">
-                </div>
-                <div class="form-group">
-                  <label for="zip-code" class="col-form-label">Zip Code:</label>
-                  <input type="text" class="form-control" id="zip-code">
-                </div>
-                <div class="form-group">
-                  <label for="cvv" class="col-form-label">CVV:</label>
-                  <input type="text" class="form-control" id="cvv">
+                <div class="form-row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="card-number" class="col-form-label">Card Number:</label>
+                      <input type="text" class="form-control" id="card-number">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label for="zip-code" class="col-form-label">Zip Code:</label>
+                      <input type="text" class="form-control" id="zip-code">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                    <label for="cvv" class="col-form-label">CVV:</label>
+                    <input type="text" class="form-control" id="cvv">
+                  </div>
+                  </div>
                 </div>
                 <label>Expiration Date:</label>
-                <div class="form-group">
-                  <select class="custom-select form-control" id="month">
-                    <option value="1">1 - January</option>
-                    <option value="2">2 - February</option>
-                    <option value="3">3 - March</option>
-                    <option value="4">4 - April</option>
-                    <option value="5">5 - May</option>
-                    <option value="6">6 - June</option>
-                    <option value="7">7 - July</option>
-                    <option value="8">8 - August</option>
-                    <option value="9">9 - September</option>
-                    <option value="10">10 - October</option>
-                    <option value="11">11 - November</option>
-                    <option value="12">12 - December</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <select class="custom-select form-control" id="year">
-                    <option value="1">2016</option>
-                    <option value="2">2017</option>
-                    <option value="3">2018</option>
-                    <option value="4">2019</option>
-                    <option value="5">2020</option>
-                  </select>
-                </div>
+                <div class="form-row">
+                  <div class="col-sm-9">                    
+                    <div class="form-group">
+                      <select class="custom-select form-control" id="month">
+                        <option value="1">1 - January</option>
+                        <option value="2">2 - February</option>
+                        <option value="3">3 - March</option>
+                        <option value="4">4 - April</option>
+                        <option value="5">5 - May</option>
+                        <option value="6">6 - June</option>
+                        <option value="7">7 - July</option>
+                        <option value="8">8 - August</option>
+                        <option value="9">9 - September</option>
+                        <option value="10">10 - October</option>
+                        <option value="11">11 - November</option>
+                        <option value="12">12 - December</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <select class="custom-select form-control" id="year">
+                        <option value="1">2016</option>
+                        <option value="2">2017</option>
+                        <option value="3">2018</option>
+                        <option value="4">2019</option>
+                        <option value="5">2020</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>            
                 <hr>
+                <div><button type="button" class="btn btn-lg btn-primary">Register</button></div>
               </div>
-              <div class="modal-footer"><button type="button" class="btn btn-primary">Register</button></div>
             </div>
           </div>
-        </div>
+        </div><!--modal-->
+        <hr>
+        <div class="row text-muted justify-content-between">
+          <div class="col-sm-5">
+            <p class="font-weight-bolder"><strong>About Company</strong></p>
+            <p>Company brings affordable technology education to people everywhere to help them achieve their dreams and change the world.</p>
+          </div>
+          <div class="col-sm-5">
+            <p class="font-weight-bolder"><strong>Stay up-to-date on Full Stack Conf</strong></p>
+            <div class="input-group">
+            <input type="text" class="form-control" placeholder="Email">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">Sign up</button>
+            </div>
+          </div>
+          </div>
+        </div><!--footer 1-->
+        <hr>
+        <div class="row mb-4">
+          <div class="col-sm-7">
+            <nav class="nav">
+            <a class="nav-link" href="#">Community</a>
+            <a class="nav-link" href="#">Tracks</a>
+            <li class="nav-item dropdown dropup">
+              <div class="btn-group dropup">
+                <button type="button" class="btn btn-outline-secondary">
+                  Other Confs
+                </button>
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">CSS Conf</a>
+                  <a class="dropdown-item" href="#">Python Conf</a>
+                  <a class="dropdown-item" href="#">Java Conf</a>
+                  <a class="dropdown-item" href="#">Swift Conf</a>
+                </div>
+              </div>
+            </li>
+            </div>
+            <div class="col-sm-5 text-right">
+              <small>
+                © 2017 Full Stack Conf & Company
+              </small>
+            </div>
+          </div>
+          
+          
+          
+        </nav><!--footer 2-->
       </div>
     </div> 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
