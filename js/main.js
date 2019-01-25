@@ -15,3 +15,11 @@ function helloFunction(){
 $( "#bounce" ).click(function() {
   $( "#bounce" ).toggle( "fold" );
 });
+
+$.ajax({
+	url:'https://random.dog/woof.json',
+	success: function(response){
+		console.log(response.url);
+		$("#randomDog").attr("src",response.url);
+	}
+});
