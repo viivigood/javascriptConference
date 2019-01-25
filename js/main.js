@@ -12,6 +12,6 @@ function helloFunction(){
 	setTimeout('window.alert(\'Hello!\')', 2000);
 }
 
-$( document ).click(function() {
-  $( "#rebota" ).toggle( "fold" );
+$( "#bounce" ).click(function() {
+  $( "#bounce" ).toggle( "fold" );
 });
